@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DIS_Assignmnet1_SPRING_2022
 {
@@ -65,15 +65,18 @@ namespace DIS_Assignmnet1_SPRING_2022
             try
             {
                 String final_string = "";
-                foreach (char x in s)
-                //looking for character x in string "s" which are not equal to the vowels and replacing them in "final_string".
+                int length = s.Length;
+                if(length>=0 && length <= 10000)
                 {
-                    if (x != 'a' & x != 'e' & x != 'i' & x != 'o' & x != 'u' & x != 'A' & x != 'E' & x != 'I' & x != 'O' & x != 'U')
+                    foreach (char x in s)
+                    //looking for character x in string "s" which are not equal to the vowels and replacing them in "final_string".
                     {
-                        final_string = final_string + x;
+                        if (x != 'a' & x != 'e' & x != 'i' & x != 'o' & x != 'u' & x != 'A' & x != 'E' & x != 'I' & x != 'O' & x != 'U')
+                        {
+                            final_string = final_string + x;
+                        }
                     }
                 }
-
                 return final_string;
             }
             catch (Exception)
@@ -109,10 +112,9 @@ namespace DIS_Assignmnet1_SPRING_2022
             {
                 int sum = 0;
                 int len = bull_bucks.Length;
+                int c = 0;
                 foreach (int z in bull_bucks)
                 {
-                    int c = 0;
-                    int x = 0;
                     //while loop inside foreach to compare the integers and overwriting the value of "c" if they are equal.
                     for (int i = 0; i < len; i++)
                     {
@@ -122,13 +124,11 @@ namespace DIS_Assignmnet1_SPRING_2022
                         }
                     }
                 }
-                //"c" value will be 1 when the integers are not equal. so sum of unique values from above whileloop are added to "sum" and the final value is given
-
+                //"c" value will be 1 when the integers are not equal.
                 if (c == 1)
                     {
                         sum = sum + z;
                     }
-                }
                 return sum;
 
             }
@@ -175,16 +175,17 @@ namespace DIS_Assignmnet1_SPRING_2022
             try
             {
                 string[] v = new string[bulls_string.Length];
-                string d = "";
+                //string array of length same as bulls_string
+                string d = "";//string to store result 
                 int i = 0;
-                while (i < bulls_string.Length)
+                while (i < bulls_string.Length)// travesing throught the string
                 {
                     int y = indices[i];
                     v[y] = Convert.ToString(bulls_string[i]);
                     i++;
                 }
                 i = 0;
-                while (i < bulls_string.Length)
+                while (i < bulls_string.Length) //creating output
                 {
                     d = d + v[i];
                     i++;
@@ -202,11 +203,11 @@ namespace DIS_Assignmnet1_SPRING_2022
         {
             try
             {
-                string[] m = new string[bulls_string6.Length];
-                int i = 0;
+                string[] m = new string[bulls_string6.Length];//string array of length same as bulls_string
+        int i = 0; 
                 while (i < bulls_string6.Length)
                 {
-                    if (bulls_string6[i] == ch)
+                    if (bulls_string6[i] == ch)// condition to find character ch in given string
                     {
                         m = bulls_string6.Split(ch);
                     }
@@ -214,12 +215,12 @@ namespace DIS_Assignmnet1_SPRING_2022
                 }
                 string y = "";
                 int k = m[0].Length - 1;
-                while (k >= 0)
+                while (k >= 0) //resversing the sub string 
                 {
                     y = y + bulls_string6[k];
                     k--;
                 }
-                string prefix_string = ch + y + m[1];
+                string prefix_string = ch + y + m[1];// forming the result string
                 return prefix_string;
             }
             catch (Exception)
