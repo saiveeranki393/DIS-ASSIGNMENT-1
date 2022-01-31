@@ -112,18 +112,23 @@ namespace DIS_Assignmnet1_SPRING_2022
             {
                 int sum = 0;
                 int len = bull_bucks.Length;
-                int c = 0;
-                foreach (int z in bull_bucks)
+                if (len >= 1 && len <= 1000) ;
                 {
-                    //while loop inside foreach to compare the integers and overwriting the value of "c" if they are equal.
-                    for (int i = 0; i < len; i++)
+                    foreach (int z in bull_bucks)
                     {
-                        if (z == bull_bucks[i])
+                        //while loop inside foreach to compare the integers and overwriting the value of "c" if they are equal.
+                        for (int i = 0; i < len; i++)
                         {
-                            c = c + 1;
+                            if (z == bull_bucks[i])
+                            {
+                                c = c + 1;
+                            }
                         }
                     }
+
                 }
+                    int c = 0;
+                
                 //"c" value will be 1 when the integers are not equal.
                 if (c == 1)
                     {
@@ -178,18 +183,24 @@ namespace DIS_Assignmnet1_SPRING_2022
                 //string array of length same as bulls_string
                 string d = "";//string to store result 
                 int i = 0;
-                while (i < bulls_string.Length)// travesing throught the string
+                int x = indices.Length;
+                if (bulls_string.Length >= 1 && bulls_string.Length <= 100 && indices.Length >= 0 && indices.Length <= 100) ;
                 {
-                    int y = indices[i];
-                    v[y] = Convert.ToString(bulls_string[i]);
-                    i++;
+                    while (i < bulls_string.Length)// travesing throught the string
+                    {
+                        int y = indices[i];
+                        v[y] = Convert.ToString(bulls_string[i]);
+                        i++;
+                    }
+                    i = 0;
+                    while (i < bulls_string.Length) //creating output
+                    {
+                        d = d + v[i];
+                        i++;
+                    }
+
                 }
-                i = 0;
-                while (i < bulls_string.Length) //creating output
-                {
-                    d = d + v[i];
-                    i++;
-                }
+               
                 return d;
             }
             catch (Exception e)
@@ -232,4 +243,5 @@ namespace DIS_Assignmnet1_SPRING_2022
         }
     }
 }
+
 
